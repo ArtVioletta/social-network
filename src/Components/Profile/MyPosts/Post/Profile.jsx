@@ -1,18 +1,19 @@
-import React from 'react';
-import s from './Profile.module.css';
-import MyPosts from "./MyPosts";
+import React from "react";
+import ProfileInfo from "../ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPostsContainer";
+import { updateStatus } from "../../../../Redux/profile-reducer";
 
-
-const Profile = () => {
-  return <div>
+const Profile = (props) => {
+  return (
     <div>
-      <img src='https://www.akamai.com/content/dam/site/im-demo/perceptual-standard.jpg?imbypass=true'/>
+      <ProfileInfo
+        profile={props.profile}
+        status={props.status}
+        updateStatus={updateStatus}
+      />
+      <MyPostsContainer />
     </div>
-    <div>
-      ava + description
-    </div>
-    <MyPosts/>
-  </div>
+  );
 };
 
 export default Profile;
